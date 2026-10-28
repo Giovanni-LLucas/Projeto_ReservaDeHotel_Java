@@ -4,7 +4,6 @@ public class Hospede {
     private String cpf;
     private String telefone;
     private int reservasAtivas;
-    private final String NAO_INFORMADO = "Nao informado";
 
     public Hospede(String nome, String cpf, String telefone) {
         this.nome = validaNome(nome);
@@ -15,7 +14,7 @@ public class Hospede {
 
     private String validaNome(String nome) {
         if (nome == null || nome.trim().isEmpty()) {
-            return NAO_INFORMADO;
+            return "NAO_INFORMADO";
         }
         return nome.trim();
     }
@@ -24,7 +23,7 @@ public class Hospede {
         if (cpf != null && cpf.length() == 11 && soTemNumeros(cpf)) {
             return cpf;
         }
-        return NAO_INFORMADO;
+        return "NAO INFORMADO";
     }
 
     private String validaTelefone(String telefone) {
@@ -33,7 +32,7 @@ public class Hospede {
                 && soTemNumeros(telefone)) {
             return telefone;
         }
-        return NAO_INFORMADO;
+        return "NAO_INFORMADO";
     }
 
     private boolean soTemNumeros(String texto) {
@@ -62,9 +61,9 @@ public class Hospede {
     }
 
     public boolean dadosValidos() {
-        return !nome.equals(NAO_INFORMADO)
-                && !cpf.equals(NAO_INFORMADO)
-                && !telefone.equals(NAO_INFORMADO);
+        return !nome.equals("NAO_INFORMADO")
+                && !cpf.equals("NAO_INFORMADO")
+                && !telefone.equals("NAO_INFORMADO");
     }
 
     public void incrementarReservas() {
@@ -78,7 +77,6 @@ public class Hospede {
     }
 
     public void mostrarDados() {
-        System.out.printf("Hospede: %s | CPF: %s | Telefone: %s | Reservas ativas: %d%n",
-                nome, cpf, telefone, reservasAtivas);
+        System.out.println("Hospede: "+ nome + " | CPF: "+cpf+ "| Telefone: " +telefone +" | Reservas ativas: "+ reservasAtivas);
     }
 }

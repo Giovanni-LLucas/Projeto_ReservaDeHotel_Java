@@ -75,8 +75,6 @@ public class Reserva {
     }
 
     public void mostrarDados() {
-        System.out.printf("Reserva #%d | Hospede: %s | Quarto %d (%s) | %d dia(s) | Total: R$ %.2f | %s%n",
-                codigo, hospede.getNome(), quarto.getNumeroDoQuarto(), quarto.getTipoDoQuarto(),
-                dias, totalHospedagem, status);
+        System.out.printf("Reserva "+ codigo + "| Hospede: "+ hospede.getNome()+" | Quarto "+quarto.getNumeroDoQuarto()+quarto.getTipoDoQuarto() +" | "+dias+" dia(s) | Total: "+totalHospedagem+ "|  "+status);
     }
 }
