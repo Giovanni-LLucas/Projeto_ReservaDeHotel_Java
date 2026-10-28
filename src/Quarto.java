@@ -15,10 +15,10 @@ public class Quarto {
     }
 
     private String validaTipo(String tipo) {
-        if (tipo == null || tipo.trim().isEmpty()) {
-            return "Standard";
+        if (tipo == null ) {
+            return "Basico";
         }
-        return tipo.trim();
+        return tipo;
     }
 
     private double validaPreco(double preco) {

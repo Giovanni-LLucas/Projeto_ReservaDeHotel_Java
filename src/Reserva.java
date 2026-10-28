@@ -7,18 +7,13 @@ public class Reserva {
     private double totalHospedagem;
     private String status;
 
-    private final String STATUS_RESERVADA = "Reservada";
-    private final String STATUS_HOSPEDADO = "Hospedado";
-    private final String STATUS_FINALIZADA = "Finalizada";
-    private final String STATUS_CANCELADA = "Cancelada";
-
     public Reserva(int codigo, Hospede hospede, Quarto quarto, int dias) {
         this.codigo = codigo;
         this.hospede = hospede;
         this.quarto = quarto;
         this.dias = validaDias(dias);
         this.totalHospedagem = quarto.calcularValorEstadia(this.dias);
-        this.status = STATUS_RESERVADA;
+        this.status = "STATUS_RESERVADA";
         quarto.ocupar(hospede);
         hospede.incrementarReservas();
     }
@@ -43,20 +38,20 @@ public class Reserva {
     public String getStatus() { return status; }
 
     public boolean estaAtiva() {
-        return status.equals(STATUS_RESERVADA) || status.equals(STATUS_HOSPEDADO);
+        return status.equals("STATUS_RESERVADA") || status.equals("STATUS_HOSPEDADO");
     }
 
     public boolean registrarCheckIn() {
-        if (status.equals(STATUS_RESERVADA)) {
-            status = STATUS_HOSPEDADO;
+        if (status.equals("STATUS_RESERVADA")) {
+            status = "STATUS_HOSPEDADO";
             return true;
         }
         return false;
     }
 
     public boolean registrarCheckOut() {
-        if (status.equals(STATUS_HOSPEDADO)) {
-            status = STATUS_FINALIZADA;
+        if (status.equals("STATUS_HOSPEDADO")) {
+            status = "STATUS_FINALIZADA";
             quarto.liberar();
             hospede.decrementarReservas();
             return true;
@@ -65,8 +60,8 @@ public class Reserva {
     }
 
     public boolean cancelar() {
-        if (status.equals(STATUS_RESERVADA)) {
-            status = STATUS_CANCELADA;
+        if (status.equals("STATUS_RESERVADA")) {
+            status = "STATUS_CANCELADA";
             quarto.liberar();
             hospede.decrementarReservas();
             return true;

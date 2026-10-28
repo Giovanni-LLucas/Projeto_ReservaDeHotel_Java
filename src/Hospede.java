@@ -13,10 +13,10 @@ public class Hospede {
     }
 
     private String validaNome(String nome) {
-        if (nome == null || nome.trim().isEmpty()) {
+        if (nome == null) {
             return "NAO_INFORMADO";
         }
-        return nome.trim();
+        return nome;
     }
 
     private String validaCpf(String cpf) {
@@ -28,8 +28,7 @@ public class Hospede {
 
     private String validaTelefone(String telefone) {
         if (telefone != null
-                && (telefone.length() == 10 || telefone.length() == 11)
-                && soTemNumeros(telefone)) {
+                && telefone.length() == 11 && soTemNumeros(telefone)) {
             return telefone;
         }
         return "NAO_INFORMADO";
@@ -51,20 +50,6 @@ public class Hospede {
     public String getTelefone() { return telefone; }
 
     public int getReservasAtivas() { return reservasAtivas; }
-
-    public void setNome(String nome) {
-        this.nome = validaNome(nome);
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = validaTelefone(telefone);
-    }
-
-    public boolean dadosValidos() {
-        return !nome.equals("NAO_INFORMADO")
-                && !cpf.equals("NAO_INFORMADO")
-                && !telefone.equals("NAO_INFORMADO");
-    }
 
     public void incrementarReservas() {
         reservasAtivas++;
