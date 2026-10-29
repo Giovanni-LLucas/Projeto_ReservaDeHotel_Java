@@ -13,7 +13,7 @@ public class Reserva {
         this.quarto = quarto;
         this.dias = validaDias(dias);
         this.totalHospedagem = quarto.calcularValorEstadia(this.dias);
-        this.status = "STATUS_RESERVADA";
+        this.status = "STATUS RESERVADA";
         quarto.ocupar(hospede);
         hospede.incrementarReservas();
     }
@@ -38,20 +38,20 @@ public class Reserva {
     public String getStatus() { return status; }
 
     public boolean estaAtiva() {
-        return status.equals("STATUS_RESERVADA") || status.equals("STATUS_HOSPEDADO");
+        return status.equals("STATUS RESERVADA") || status.equals("STATUS HOSPEDADO");
     }
 
     public boolean registrarCheckIn() {
-        if (status.equals("STATUS_RESERVADA")) {
-            status = "STATUS_HOSPEDADO";
+        if (status.equals("STATUS RESERVADA")) {
+            status = "STATUS HOSPEDADO";
             return true;
         }
         return false;
     }
 
     public boolean registrarCheckOut() {
-        if (status.equals("STATUS_HOSPEDADO")) {
-            status = "STATUS_FINALIZADA";
+        if (status.equals("STATUS HOSPEDADO")) {
+            status = "STATUS FINALIZADA";
             quarto.liberar();
             hospede.decrementarReservas();
             return true;
@@ -60,8 +60,8 @@ public class Reserva {
     }
 
     public boolean cancelar() {
-        if (status.equals("STATUS_RESERVADA")) {
-            status = "STATUS_CANCELADA";
+        if (status.equals("STATUS RESERVADA")) {
+            status = "STATUS CANCELADA";
             quarto.liberar();
             hospede.decrementarReservas();
             return true;

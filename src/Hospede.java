@@ -14,7 +14,7 @@ public class Hospede {
 
     private String validaNome(String nome) {
         if (nome == null) {
-            return "NAO_INFORMADO";
+            return "NAO INFORMADO";
         }
         return nome;
     }
@@ -31,7 +31,7 @@ public class Hospede {
                 && telefone.length() == 11 && soTemNumeros(telefone)) {
             return telefone;
         }
-        return "NAO_INFORMADO";
+        return "NAO INFORMADO";
     }
 
     private boolean soTemNumeros(String texto) {

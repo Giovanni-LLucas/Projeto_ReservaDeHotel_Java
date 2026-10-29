@@ -5,10 +5,9 @@ public class GioNat_Palace {
 
         Scanner leitor = new Scanner(System.in);
 
-        System.out.println("Sejam Bem Vindos ao GioNat Palace");
+        System.out.println("============== SEJAM BEM VINDOS AO GIONAT PALACE ==============");
 
                 
-
 
         leitor.close();
     }

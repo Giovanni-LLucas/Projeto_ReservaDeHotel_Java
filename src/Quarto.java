@@ -34,7 +34,7 @@ public class Quarto {
 
     public double getPreco() { return preco; }
 
-    public boolean estaDisponivel() { return disponibilidade; }
+    public boolean getEstaDisponivel() { return disponibilidade; }
 
     public void setTipoDoQuarto(String tipoDoQuarto) {
         this.tipoDoQuarto = validaTipo(tipoDoQuarto);
