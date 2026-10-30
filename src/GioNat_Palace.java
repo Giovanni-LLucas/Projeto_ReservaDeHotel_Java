@@ -18,6 +18,9 @@ public class GioNat_Palace {
         System.out.println("");
 
         int opcao;
+
+
+
         
         do{ 
             main.menu();
@@ -34,15 +37,15 @@ public class GioNat_Palace {
                     break;
 
                 case 3:
-
+                    main.buscandoReservaPorCpf();
                     break;
 
                 case 4:
-
+                    main.cancelarReserva();
                     break;
 
                 case 5:
-
+                    main.exibindoReservas();
                     break;
                 
                 case 0:
@@ -71,6 +74,7 @@ public class GioNat_Palace {
     }
 
     public void listandoQuartos(){
+        System.out.println("");
         hotel.listarQuartos();
     }
 
@@ -87,6 +91,7 @@ public class GioNat_Palace {
 
         listandoQuartos();
 
+        System.out.println("");
         System.out.print("Qual o quarto deseja (Escolha pelo numero): ");
         int numeroQuarto = leitor.nextInt();
 
@@ -95,12 +100,40 @@ public class GioNat_Palace {
         if(quartoEscolhido != null && quartoEscolhido.getEstaDisponivel()){
             System.out.print("Quantos dias deseja ficar no hotel: ");
             int dias = leitor.nextInt();
+            System.out.println("");
             hotel.reservarQuarto(novoHospede, quartoEscolhido, dias);
         }else{
             System.out.println("O quarto nao existe ou esta ocupado.");
         }
 
-        hotel.exibirReservas();
+        //hotel.exibirReservas();
+        System.out.println("");
+    }
 
+    public void buscandoReservaPorCpf(){
+        leitor.nextLine();
+        System.out.print("Insira seu CPF (SOMENTE NUMEROS): ");
+        String cpf = leitor.nextLine();
+
+        Reserva reservaEncotrada = hotel.buscarReservaPorCpf(cpf);
+
+        if(reservaEncotrada != null){
+            System.out.println("Reserva encontrada.");
+            System.out.println(reservaEncotrada.mostrarDados());
+        }else{
+            System.out.println("Nenhuma reserva encotrada.");
+        }
+        System.out.println("");
+    }
+
+    public void cancelarReserva(){
+        System.out.println("Insira o numero do quarto da sua reserva: ");
+        int numero = leitor.nextInt();
+
+        hotel.cancelarReserva(numero);
+    }
+
+    public void exibindoReservas(){
+        hotel.exibirReservas();
     }
 }

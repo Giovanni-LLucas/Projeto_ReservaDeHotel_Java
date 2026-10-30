@@ -77,27 +77,36 @@ public class Hotel {
        return null;
     }
 
-    public void cancelarReserva(int codigo){
+    public void cancelarReserva(int numero){
         for(int  i = 0; i < reservas.length; i++){
             if(reservas[i] != null){
 
-                if(reservas[i].getCodigo() == codigo){
+                if(reservas[i].getQuarto().getNumeroDoQuarto() == numero){
 
                     if(reservas[i].estaAtiva()){
+
                         reservas[i].cancelar();
+                        reservas[i].getQuarto().liberar();
+
+                        System.out.println("Reserva do quarto " + numero + " cancelada.");
+                        System.out.println("");
+                        return;
                     }
 
                 }
 
             }
         }
-        
+        System.out.println("Nenhuma reserva no quarto " + numero + " encontrada.");
+        System.out.println("");
     }
 
     public Reserva buscarReservaPorCpf(String cpf){
         for(int i = 0; i < reservas.length; i++){
+
             if(reservas[i] != null){
-                if(reservas[i].getHospede().getCpf().equals(cpf)){
+
+                if(reservas[i].getHospede().getCpf().equals(cpf) && reservas[i].estaAtiva()){
                     return reservas[i];
                 }
             }
@@ -106,8 +115,11 @@ public class Hotel {
     }
 
     public void exibirReservas(){
-        for(int i = 0; i < quartos.length; i++){
-            System.out.println();
+        for(int i = 0; i < reservas.length; i++){
+
+            if(reservas[i] != null && reservas[i].estaAtiva()){
+                System.out.println(reservas[i].mostrarDados());
+            }
         }
     }
 
