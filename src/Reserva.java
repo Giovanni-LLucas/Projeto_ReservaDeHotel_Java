@@ -70,6 +70,7 @@ public class Reserva {
     }
 
     public String mostrarDados() {
-        return "Reserva: " + codigo + "| Hospede: " + hospede.getNome() + " | Quarto: " + quarto.getNumeroDoQuarto() + " / " + quarto.getTipoDoQuarto() + " | " + dias + " dia(s) | Total: " + totalHospedagem + "|  " + status;
+        return String.format("Reserva: %-5d | Hospede: %-20s | Quarto: %-2d - Tipo do Quarto: %-10s | Quantidade de dias: %-2d | Total Hospedagem: R$ %-7.2f | Status: %s", 
+        codigo, hospede.getNome(), quarto.getNumeroDoQuarto(), quarto.getTipoDoQuarto(), dias, totalHospedagem, status);
     }
 }

@@ -71,6 +71,6 @@ public class Quarto {
         if (!disponibilidade) {
             situacao = "Ocupado por " + hospede.getNome();
         }
-        System.out.println("Quarto " + numeroDoQuarto + "| Tipo: " +tipoDoQuarto +"| Diaria:"+ preco + "| "+situacao);
+        System.out.println(String.format("Quarto %-2d | Tipo: %-7s  | Diaria: R$ %-6.2f | %s", numeroDoQuarto, tipoDoQuarto, preco, situacao));
     }
 }

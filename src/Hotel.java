@@ -39,6 +39,15 @@ public class Hotel {
         }
     }
 
+    public Quarto buscarQuartoPorNumero(int numero){
+        for(int i = 0; i < quartos.length; i++){
+            if(quartos[i].getNumeroDoQuarto() == numero){
+                return quartos[i];
+            }
+        }
+        return null;
+    }
+
     public Quarto buscarQuartoDisponivel(){
         for(int i = 0; i < quartos.length; i++){
             if(quartos[i].getEstaDisponivel()){
@@ -59,6 +68,8 @@ public class Hotel {
                 Reserva novaReserva = new Reserva(proximoCodigo, hospede, quarto, dias);
                 reservas[i] = novaReserva;
                 proximoCodigo++;
+
+                quarto.ocupar(hospede);
                 return novaReserva;
             }
        }

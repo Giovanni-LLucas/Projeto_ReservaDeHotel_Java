@@ -62,6 +62,6 @@ public class Hospede {
     }
 
     public void mostrarDados() {
-        System.out.println("Hospede: "+ nome + " | CPF: "+cpf+ "| Telefone: " +telefone +" | Reservas ativas: "+ reservasAtivas);
+        System.out.println("Hospede: " + nome + " | CPF: " + cpf + " | Telefone: " + telefone + " | Reservas ativas: " + reservasAtivas);
     }
 }
