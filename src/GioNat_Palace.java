@@ -18,9 +18,6 @@ public class GioNat_Palace {
         System.out.println("");
 
         int opcao;
-
-
-
         
         do{ 
             main.menu();
@@ -105,8 +102,6 @@ public class GioNat_Palace {
         }else{
             System.out.println("O quarto nao existe ou esta ocupado.");
         }
-
-        //hotel.exibirReservas();
         System.out.println("");
     }
 

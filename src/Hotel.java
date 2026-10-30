@@ -115,12 +115,17 @@ public class Hotel {
     }
 
     public void exibirReservas(){
+        boolean encontrarReserva = false;
         for(int i = 0; i < reservas.length; i++){
 
             if(reservas[i] != null && reservas[i].estaAtiva()){
                 System.out.println(reservas[i].mostrarDados());
+                encontrarReserva = true;
             }
         }
+        if(!encontrarReserva){
+            System.out.println("Nenhuma reserva cadastrada.");
+        }   
     }
-
+    
 }
