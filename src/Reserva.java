@@ -69,7 +69,7 @@ public class Reserva {
         return false;
     }
 
-    public void mostrarDados() {
-        System.out.printf("Reserva "+ codigo + "| Hospede: "+ hospede.getNome()+" | Quarto "+quarto.getNumeroDoQuarto()+quarto.getTipoDoQuarto() +" | "+dias+" dia(s) | Total: "+totalHospedagem+ "|  "+status);
+    public String mostrarDados() {
+        return "Reserva: " + codigo + "| Hospede: " + hospede.getNome() + " | Quarto: " + quarto.getNumeroDoQuarto() + " / " + quarto.getTipoDoQuarto() + " | " + dias + " dia(s) | Total: " + totalHospedagem + "|  " + status;
     }
 }

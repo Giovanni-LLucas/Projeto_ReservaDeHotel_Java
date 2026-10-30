@@ -2,6 +2,7 @@ public class Hotel {
 
     Quarto[] quartos;
     Reserva[] reservas;
+    private int proximoCodigo = 1;
 
     public Hotel (){
         quartos = new Quarto[10];
@@ -34,7 +35,7 @@ public class Hotel {
 
     public void listarQuartos(){
         for(int i = 0; i < quartos.length; i++){
-            System.out.println(quartos[i].mostrarDados;);
+            quartos[i].mostrarDados();
         }
     }
 
@@ -48,31 +49,49 @@ public class Hotel {
     }
 
     public Reserva reservarQuarto(Hospede hospede, Quarto quarto, int dias){
-        for(int i = 0; i < quartos.length; i++){
-            if(!quartos[i].registrarCheckIn){
-                System.out.println("O quarto já esta ocupado.");
-                return null;
+       if(!quarto.getEstaDisponivel()){
+            System.out.println("O quarto já está ocupado.");
+            return null;
+       }
+
+       for(int i = 0; i < reservas.length; i++){
+            if(reservas[i] == null){
+                Reserva novaReserva = new Reserva(proximoCodigo, hospede, quarto, dias);
+                reservas[i] = novaReserva;
+                proximoCodigo++;
+                return novaReserva;
             }
-        }
-        return estaAtiva();
+       }
+       System.out.println("Reserva não encontrada ou já cancelada.");
+       return null;
     }
 
     public void cancelarReserva(int codigo){
-        for(int  i = 0; i < quartos.length; i++){
-            if(quartos[i].registrarCheckOut){
-                quartos[i].cancelar();
+        for(int  i = 0; i < reservas.length; i++){
+            if(reservas[i] != null){
+
+                if(reservas[i].getCodigo() == codigo){
+
+                    if(reservas[i].estaAtiva()){
+                        reservas[i].cancelar();
+                    }
+
+                }
+
             }
         }
-        return null;
+        
     }
 
     public Reserva buscarReservaPorCpf(String cpf){
-        for(int i = 0; i < quartos.length; i++){
-            if(quartos[i].equals.getHospede()){
-                return quartos[i].getHospede();
+        for(int i = 0; i < reservas.length; i++){
+            if(reservas[i] != null){
+                if(reservas[i].getHospede().getCpf().equals(cpf)){
+                    return reservas[i];
+                }
             }
         }
-        return null
+        return null;
     }
 
     public void exibirReservas(){
