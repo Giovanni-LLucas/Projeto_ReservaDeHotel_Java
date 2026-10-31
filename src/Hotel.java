@@ -64,16 +64,14 @@ public class Hotel {
        }
 
        for(int i = 0; i < reservas.length; i++){
-            if(reservas[i] == null){
+            if(reservas[i] == null || !reservas[i].estaAtiva()){
                 Reserva novaReserva = new Reserva(proximoCodigo, hospede, quarto, dias);
                 reservas[i] = novaReserva;
                 proximoCodigo++;
-
-                quarto.ocupar(hospede);
                 return novaReserva;
             }
        }
-       System.out.println("Reserva não encontrada ou já cancelada.");
+       System.out.println("Nao eh possivel fazer mais reservas, o hotel ja esta cheio.");
        return null;
     }
 
@@ -85,10 +83,11 @@ public class Hotel {
 
                     if(reservas[i].estaAtiva()){
 
-                        reservas[i].cancelar();
-                        reservas[i].getQuarto().liberar();
-
-                        System.out.println("Reserva do quarto " + numero + " cancelada.");
+                        if(reservas[i].cancelar()){
+                            System.out.println("Reserva do quarto " + numero + " cancelada.");
+                        }else{
+                            System.out.println("Nao eh possivel cancelar essa reserva.");
+                        }
                         System.out.println("");
                         return;
                     }
@@ -101,17 +100,19 @@ public class Hotel {
         System.out.println("");
     }
 
-    public Reserva buscarReservaPorCpf(String cpf){
+    public int buscarReservaPorCpf(String cpf){
+        int reservaEncotradas = 0;
         for(int i = 0; i < reservas.length; i++){
 
             if(reservas[i] != null){
 
                 if(reservas[i].getHospede().getCpf().equals(cpf) && reservas[i].estaAtiva()){
-                    return reservas[i];
+                    System.out.println(reservas[i].mostrarDados());
+                    reservaEncotradas++;
                 }
             }
         }
-        return null;
+        return reservaEncotradas;
     }
 
     public void exibirReservas(){

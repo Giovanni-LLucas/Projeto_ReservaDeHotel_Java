@@ -13,7 +13,7 @@ public class Hospede {
     }
 
     private String validaNome(String nome) {
-        if (nome == null) {
+        if (nome == null || nome.trim().isEmpty()) {
             return "NAO INFORMADO";
         }
         return nome;
@@ -41,6 +41,10 @@ public class Hospede {
             }
         }
         return true;
+    }
+
+    public boolean dadosValidos() {
+        return !nome.equals("NAO INFORMADO") && !cpf.equals("NAO INFORMADO") && !telefone.equals("NAO INFORMADO");
     }
 
     public String getNome() { return nome; }

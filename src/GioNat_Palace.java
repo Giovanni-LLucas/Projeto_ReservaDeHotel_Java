@@ -85,6 +85,11 @@ public class GioNat_Palace {
         String telefone = leitor.nextLine();
 
         Hospede novoHospede = new Hospede(nome, cpf, telefone);
+        
+        if(novoHospede.dadosValidos()){
+            System.out.println("");
+            System.out.println("Dados invalidos, reserva nao realizada.");
+        }
 
         listandoQuartos();
 
@@ -110,12 +115,9 @@ public class GioNat_Palace {
         System.out.print("Insira seu CPF (SOMENTE NUMEROS): ");
         String cpf = leitor.nextLine();
 
-        Reserva reservaEncotrada = hotel.buscarReservaPorCpf(cpf);
+        int reservaEncotrada = hotel.buscarReservaPorCpf(cpf.trim());
 
-        if(reservaEncotrada != null){
-            System.out.println("Reserva encontrada.");
-            System.out.println(reservaEncotrada.mostrarDados());
-        }else{
+        if(reservaEncotrada == 0){
             System.out.println("Nenhuma reserva encotrada.");
         }
         System.out.println("");
