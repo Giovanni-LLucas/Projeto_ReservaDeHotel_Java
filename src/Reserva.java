@@ -41,24 +41,6 @@ public class Reserva {
         return status.equals("RESERVADA") || status.equals("HOSPEDADO");
     }
 
-    public boolean registrarCheckIn() {
-        if (status.equals("RESERVADA")) {
-            status = "HOSPEDADO";
-            return true;
-        }
-        return false;
-    }
-
-    public boolean registrarCheckOut() {
-        if (status.equals("HOSPEDADO")) {
-            status = "FINALIZADA";
-            quarto.liberar();
-            hospede.decrementarReservas();
-            return true;
-        }
-        return false;
-    }
-
     public boolean cancelar() {
         if (status.equals("RESERVADA")) {
             status = "CANCELADA";

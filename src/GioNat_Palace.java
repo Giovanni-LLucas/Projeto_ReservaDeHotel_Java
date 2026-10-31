@@ -85,10 +85,21 @@ public class GioNat_Palace {
         String telefone = leitor.nextLine();
 
         Hospede novoHospede = new Hospede(nome, cpf, telefone);
-        
-        if(novoHospede.dadosValidos()){
-            System.out.println("");
-            System.out.println("Dados invalidos, reserva nao realizada.");
+
+        while(!novoHospede.dadosValidos()){
+            if(!novoHospede.nomeValido()){
+                System.out.print("Insira seu nome: ");
+                nome = leitor.nextLine();
+            }
+            if(!novoHospede.cpfValido()){
+                System.out.print("Insira seu CPF (APENAS NUMEROS): ");
+                cpf = leitor.nextLine();
+            }
+            if(!novoHospede.telefoneValido()){
+                System.out.print("Insira o seu telefone (APENAS NUMEROS): ");
+                telefone = leitor.nextLine();
+            }
+            novoHospede = new Hospede(nome, cpf, telefone);
         }
 
         listandoQuartos();

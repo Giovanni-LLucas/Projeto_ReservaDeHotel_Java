@@ -14,6 +14,7 @@ public class Hospede {
 
     private String validaNome(String nome) {
         if (nome == null || nome.trim().isEmpty()) {
+            System.out.println("Erro: nome invalido. O nome nao pode ficar vazio.");
             return "NAO INFORMADO";
         }
         return nome;
@@ -23,6 +24,7 @@ public class Hospede {
         if (cpf != null && cpf.length() == 11 && soTemNumeros(cpf)) {
             return cpf;
         }
+        System.out.println("Erro: CPF invalido. Digite exatamente 11 numeros, sem pontos nem tracos.");
         return "NAO INFORMADO";
     }
 
@@ -31,6 +33,7 @@ public class Hospede {
                 && telefone.length() == 11 && soTemNumeros(telefone)) {
             return telefone;
         }
+        System.out.println("Erro: telefone invalido. Digite 11 numeros com DDD, sem espacos, parenteses nem tracos.");
         return "NAO INFORMADO";
     }
 
@@ -45,6 +48,18 @@ public class Hospede {
 
     public boolean dadosValidos() {
         return !nome.equals("NAO INFORMADO") && !cpf.equals("NAO INFORMADO") && !telefone.equals("NAO INFORMADO");
+    }
+
+    public boolean nomeValido() {
+        return !nome.equals("NAO INFORMADO");
+    }
+
+    public boolean cpfValido() {
+        return !cpf.equals("NAO INFORMADO");
+    }
+
+    public boolean telefoneValido() {
+        return !telefone.equals("NAO INFORMADO");
     }
 
     public String getNome() { return nome; }
