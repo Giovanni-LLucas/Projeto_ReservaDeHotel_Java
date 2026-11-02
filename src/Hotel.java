@@ -60,6 +60,7 @@ public class Hotel {
     public Reserva reservarQuarto(Hospede hospede, Quarto quarto, int dias){
        if(!quarto.getEstaDisponivel()){
             System.out.println("O quarto já está ocupado.");
+            System.out.println("");
             return null;
        }
 
@@ -72,6 +73,7 @@ public class Hotel {
             }
        }
        System.out.println("Nao eh possivel fazer mais reservas, o hotel ja esta cheio.");
+       System.out.println("");
        return null;
     }
 
@@ -85,8 +87,10 @@ public class Hotel {
 
                         if(reservas[i].cancelar()){
                             System.out.println("Reserva do quarto " + numero + " cancelada.");
+                            System.out.println("");
                         }else{
                             System.out.println("Nao eh possivel cancelar essa reserva.");
+                            System.out.println("");
                         }
                         System.out.println("");
                         return;
@@ -126,6 +130,7 @@ public class Hotel {
         }
         if(!encontrarReserva){
             System.out.println("Nenhuma reserva cadastrada.");
+            System.out.println("");
         }   
     }
     

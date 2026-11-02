@@ -38,11 +38,11 @@ Os dados ficam "armazenados" num vetor. Ao encerrar o programa, tudo é reinicia
 - **GioNat_Palace** — exibe o menu, lê o que o usuário digita e chama o `Hotel`.
 - **Hotel** — guarda os 10 quartos e as reservas em vetores; faz reservar, cancelar, buscar e listar.
 - **Quarto** — número, tipo, preço, disponibilidade e hóspede atual, além de calcular o valor da estadia.
-- **Reserva** — código, hóspede, quarto, dias, total e status (`RESERVADA`, `HOSPEDADO`, `FINALIZADA`, `CANCELADA`).
+- **Reserva** — código, hóspede, quarto, dias, total e status (`RESERVADA` || `CANCELADA`).
 - **Hospede** — nome, CPF e telefone, com validação dos dados.
 
 
-## Exemplo
+## Exemplo de execucao
 
 ```
 ============== SEJAM BEM VINDOS AO GIONAT PALACE ==============
@@ -63,7 +63,7 @@ Qual o quarto deseja (Escolha pelo numero): 8
 Quantos dias deseja ficar no hotel: 3
 
 Reserva realizada com sucesso!
-Reserva: 1  | Hospede: Maria Silva | Quarto: 8 - Tipo do Quarto: Luxo | Quantidade de dias: 3 | Total Hospedagem: R$ 900,00 | Status: RESERVADA
+Reserva: 1  | Hospede: Giovanni Lucas | Quarto: 8 - Tipo do Quarto: Luxo | Quantidade de dias: 3 | Total Hospedagem: R$ 900,00 | Status: RESERVADA
 ```
 
 ## Escopo do projeto

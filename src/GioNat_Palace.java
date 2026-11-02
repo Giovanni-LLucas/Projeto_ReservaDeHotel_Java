@@ -115,8 +115,9 @@ public class GioNat_Palace {
             int dias = leitor.nextInt();
             System.out.println("");
             hotel.reservarQuarto(novoHospede, quartoEscolhido, dias);
+            System.out.println("Reserva realizada com sucesso.");
         }else{
-            System.out.println("O quarto nao existe ou esta ocupado.");
+            System.out.println("O quarto esta ocupado ou nao existe.");
         }
         System.out.println("");
     }
